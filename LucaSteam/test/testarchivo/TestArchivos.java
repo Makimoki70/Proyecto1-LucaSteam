@@ -32,10 +32,10 @@ public class TestArchivos {
 	@Test
 	public void TestJuego() {
 		boolean exist = true;
-		Juego juego = new HemerotecaDatosImpl().cargarFichero().get(0);
+		Juego juego = new HemerotecaDatosImpl().cargarFichero().get(2);
 		if(juego.toString().length() == 0) { 
 			exist = false;
 		}
-		assert(exist);
+		assertTrue(exist);
 	}
 }

@@ -69,8 +69,7 @@ public class Juego {
 
 	@Override
 	public String toString() {
-		return "Juego [nombre=" + nombre + ", plataforma=" + plataforma.getPlataforma().toString() + ", fecha=" + fecha + ", genero=" + genero.getGenero().toString()
-				+ ", editor=" + editor + "]";
+		return "Juego [nombre=" + nombre + ", fecha=" + fecha + "editor=" + editor + "]";
 	}
 
 	
