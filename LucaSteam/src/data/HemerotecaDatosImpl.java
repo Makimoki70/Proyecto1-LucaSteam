@@ -47,8 +47,6 @@ public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 		Juego juego = new Juego(nombre, anyo, editor);
 		
 		addJuego(juego);
-						
-		
 	}
 
 
@@ -56,32 +54,29 @@ public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 	public List<Juego> cargarFichero() {
 		// TODO Auto-generated method stub	
 		
-		try (BufferedReader br = new BufferedReader(new FileReader("/resources/vgsales.csv"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("resources/vgsales.csv"))) {
 					
-			StringBuilder registro = new StringBuilder(br.readLine());
-								
+			StringBuilder registro = new StringBuilder(br.readLine());			
 			
 			while (null!=registro.toString())
 			{			
-								
+				registro = new StringBuilder(br.readLine());
+				
+				System.out.println(registro.toString());
+				
 				String [] data = registro.toString().split(",");
 				
-				String name = data[1];
+				Juego juego = new Juego ();
+				//System.out.println(data[1]);
+				juego.setNombre(data[1]);
+				//System.out.println(data[3]);
+				if(!data[3].equals("N/A")){
+					juego.setFecha(Integer.parseInt(data[3]));
+				}
+				juego.setEditor(data[5]);
 				
-				int year = Integer.parseInt(data[3]);
-				
-				String editor = data[5];			
-								
-				Juego juego = new Juego (name, year, editor);
-				
-				addJuego(juego);				
-				
-				registro = new StringBuilder(br.readLine());				
-				
-			}			
-			
-			
-			
+				addJuego(juego);
+			}	
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block	
