@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /control/
 /data/
 /gui/
@@ -5,3 +6,7 @@
 /service/
 /testarchivo/
 /utilities/
+=======
+/gui/
+/testarchivo/
+>>>>>>> main
