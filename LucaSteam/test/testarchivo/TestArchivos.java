@@ -1,11 +1,13 @@
 package testarchivo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import java.io.File;
+import java.util.List;
 
 import org.junit.Test;
 
 import data.HemerotecaDatosImpl;
+import gui.ImprimirJuegos;
 import model.Juego;
 
 public class TestArchivos {
@@ -37,4 +39,19 @@ public class TestArchivos {
 		}
 		assertTrue(exist);
 	}
+	
+	@Test
+	public void muestraLista()
+	{
+		
+		boolean imprime = true;
+		List <Juego> juegos = new HemerotecaDatosImpl().cargarFichero();
+		
+		imprime = ImprimirJuegos.impreJuegos(juegos);
+		
+		assertTrue(imprime);
+		
+	}
+	
+	
 }
