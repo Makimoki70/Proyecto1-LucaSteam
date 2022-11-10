@@ -1,6 +1,7 @@
 package service;
 
 import data.HemerotecaDatosImpl;
+import gui.ImprimirJuegos;
 
 public class HemerotecaServiceImpl implements HemerotecaService {
 	
@@ -12,6 +13,6 @@ public class HemerotecaServiceImpl implements HemerotecaService {
 	}
 	
 	public void mostrarJuegos() {
-		hemerotecaDatos.getBiblioteca();
+		ImprimirJuegos.impreJuegos(hemerotecaDatos.getBiblioteca());
 	}
 }
