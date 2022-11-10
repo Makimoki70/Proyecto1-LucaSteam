@@ -12,7 +12,8 @@ public enum Genero {
 	Shooter("Shooter"),
 	Simulation("Simulation"),
 	Sports("Sports"),
-	Strategy("Strategy");
+	Strategy("Strategy"),
+	Defecto("No tiene genero valido");
 
 	private String genero;
 	
@@ -28,9 +29,6 @@ public enum Genero {
 		return genero;
 	}
 	
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
 	
 	public String toString() {
 		return this.name();

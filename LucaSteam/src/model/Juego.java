@@ -2,7 +2,7 @@ package model;
 
 public class Juego {
 	private String nombre;
-	private String plataforma;
+	private Plataforma plataforma;
 	private int fecha;
 	private Genero genero;
 	private String editor;
@@ -18,8 +18,7 @@ public class Juego {
 		this.editor = editor;
 	}
 
-	//¿Lectura de datos via Hashmap y escritura individual de registros con un metodo tratarEnum() para genero?
-	public Juego(String nombre, String plataforma, int fecha, Genero genero, String editor) {
+	public Juego(String nombre, Plataforma plataforma, int fecha, Genero genero, String editor) {
 		super();
 		this.nombre = nombre;
 		this.plataforma = plataforma;
@@ -36,11 +35,11 @@ public class Juego {
 		this.nombre = nombre;
 	}
 
-	public String getPlataforma() {
+	public Plataforma getPlataforma() {
 		return plataforma;
 	}
 
-	public void setPlataforma(String plataforma) {
+	public void setPlataforma(Plataforma plataforma) {
 		this.plataforma = plataforma;
 	}
 
@@ -70,7 +69,7 @@ public class Juego {
 
 	@Override
 	public String toString() {
-		return "Juego [nombre=" + nombre + ", plataforma=" + plataforma + ", fecha=" + fecha + ", genero=" + genero.getGenero().toString()
+		return "Juego [nombre=" + nombre + ", plataforma=" + plataforma.getPlataforma().toString() + ", fecha=" + fecha + ", genero=" + genero.getGenero().toString()
 				+ ", editor=" + editor + "]";
 	}
 

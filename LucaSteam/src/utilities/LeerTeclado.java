@@ -46,7 +46,7 @@ public class LeerTeclado {
 
 	public static long leerLong(String mensaje) {
 		System.out.println(mensaje);
-		return  leerLong();
+		return leerLong();
 	}
 
 	public static double leerDouble() {
