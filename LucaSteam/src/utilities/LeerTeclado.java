@@ -46,7 +46,7 @@ public class LeerTeclado {
 
 	public static long leerLong(String mensaje) {
 		System.out.println(mensaje);
-		return new Scanner(System.in).nextLong();
+		return  leerLong();
 	}
 
 	public static double leerDouble() {
@@ -55,7 +55,7 @@ public class LeerTeclado {
 
 	public static double leerDouble(String mensaje) {
 		System.out.println(mensaje);
-		return new Scanner(System.in).nextDouble();
+		return leerDouble();
 	}
 
 	public static byte leerByte() {
@@ -64,7 +64,7 @@ public class LeerTeclado {
 
 	public static byte leerByte(String mensaje) {
 		System.out.println(mensaje);
-		return new Scanner(System.in).nextByte();
+		return leerByte();
 	}
 
 	public static String leerPalabra() {
@@ -73,7 +73,7 @@ public class LeerTeclado {
 
 	public static String leerPalabra(String mensaje) {
 		System.out.println(mensaje);
-		return new Scanner(System.in).next();
+		return leerPalabra();
 	}
 
 }
