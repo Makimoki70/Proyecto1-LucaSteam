@@ -10,6 +10,7 @@ import com.opencsv.CSVReader;
 
 import model.Juego;
 import utilities.LeerTeclado;
+import utilities.TratamientoDatos;
 
 public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 
@@ -31,7 +32,6 @@ public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 		biblioteca.add(juego);
 		
 	}
-
 	
 	@Override
 	public void addJuego() {
@@ -50,41 +50,6 @@ public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 
 	@Override
 	public List<Juego> cargarFichero() {
-		// TODO Auto-generated method stub	
-		
-		/*try (BufferedReader br = new BufferedReader(new FileReader("resources/vgsales.csv"))) {
-					
-			StringBuilder registro = new StringBuilder(br.readLine());			
-			
-			while (null!=registro.toString())
-			{			
-				registro = new StringBuilder(br.readLine());
-				
-				System.out.println(registro.toString());
-				
-				String [] data = registro.toString().split(",");
-				
-				Juego juego = new Juego ();
-				//System.out.println(data[1]);
-				juego.setNombre(data[1]);
-				//System.out.println(data[3]);
-				if(!data[3].equals("N/A")){
-					juego.setFecha(Integer.parseInt(data[3]));
-				}
-				juego.setEditor(data[5]);
-				
-				addJuego(juego);
-			}	
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block	
-			System.out.println("No se encuentra el fichero");
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		
 		try (CSVReader csvReader = new CSVReader(new FileReader("resources/vgsales.csv"), ',', '"')) {
 
 			csvReader.readNext();
@@ -93,12 +58,17 @@ public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 			while (null!=data) {
 				
 				Juego juego = new Juego ();
-				//System.out.println(data[1]);
+				
 				juego.setNombre(data[1]);
-				//System.out.println(data[3]);
+				
+				juego.setPlataforma(TratamientoDatos.tratarEnumPlataforma(data[2]));
+				
 				if(!data[3].equals("N/A")){
 					juego.setFecha(Integer.parseInt(data[3]));
 				}
+				
+				juego.setGenero(TratamientoDatos.tratarEnumGenero(data[4]));
+				
 				juego.setEditor(data[5]);
 				
 				addJuego(juego);
@@ -117,8 +87,14 @@ public class HemerotecaDatosImpl implements IntHemerotecaDatos {
 		return biblioteca;
 	}
 	
-	
-	
-	
-
+	public List<Juego> filtradoPlataforma(){
+		List<Juego> listaAux = new ArrayList<>();
+		
+		for (Juego juego : biblioteca) {
+			if (juego.getGenero().getGenero().equals("Platform")) {
+				listaAux.add(juego);
+			}
+		}
+		return listaAux;	
+	}
 }

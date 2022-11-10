@@ -9,10 +9,18 @@ public class HemerotecaServiceImpl implements HemerotecaService {
 	
 	
 	public void addJuego() {
-		
+		hemerotecaDatos.addJuego();
 	}
 	
 	public void mostrarJuegos() {
 		ImprimirJuegos.impreJuegos(hemerotecaDatos.getBiblioteca());
+	}
+	
+	public void cargarJuegos() {
+		hemerotecaDatos.setBiblioteca(hemerotecaDatos.cargarFichero());
+	}
+	
+	public void filtrarJuegosPlataformas() {
+		ImprimirJuegos.impreJuegos(hemerotecaDatos.filtradoPlataforma());
 	}
 }

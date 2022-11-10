@@ -69,6 +69,6 @@ public class Juego {
 
 	@Override
 	public String toString() {
-		return "Juego [nombre=" + nombre + ", fecha=" + fecha + "editor=" + editor + "]";
+		return "Juego [nombre=" + nombre + ", fecha=" + fecha + " editor=" + editor + "]";
 	}
 }
