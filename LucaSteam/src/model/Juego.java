@@ -71,6 +71,4 @@ public class Juego {
 	public String toString() {
 		return "Juego [nombre=" + nombre + ", fecha=" + fecha + "editor=" + editor + "]";
 	}
-
-	
 }
